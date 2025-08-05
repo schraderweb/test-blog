@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Simple Blog&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* { box-sizing: border-box; font-family: Arial, sans-serif; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body { max-width: 800px; margin: 0 auto; padding: 20px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.form-container { background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 30px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>input, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 4px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button { background: #4CAF50; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:hover { background: #45a049; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.post { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 8px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.post h2 { margin-top: 0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.post img { max-width: 100%; height: auto; border-radius: 4px; margin-top: 10px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.notification { padding: 10px; margin: 10px 0; border-radius: 4px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.success { background: #d4edda; color: #155724; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.error { background: #f8d7da; color: #721c24; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;My Simple Blog&lt;/h1&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="form-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Create New Post&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="notification"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;form id="postForm"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="heading" placeholder="Post Heading" required&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;textarea id="content" rows="5" placeholder="Write your content here..." required&gt;&lt;/textarea&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="file" id="image" accept="image/*"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button type="submit"&gt;Publish Post&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="postsContainer"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Blog posts will be loaded here --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Initialize Supabase</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const supabaseUrl = 'https://gsjnxyjlmxxxwmldbcqe.supabase.co';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdzam54eWpsbXh4eHdtbGRiY3FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQyNDEyODksImV4cCI6MjA2OTgxNzI4OX0.Sf2OzX0vGzLv_rfY-Mce8Tqp98-DZPch5GzZsU7RBgI';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Form submission handler</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('postForm').addEventListener('submit', async (e) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>e.preventDefault();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const notification = document.getElementById('notification');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Get form values</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const heading = document.getElementById('heading').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const content = document.getElementById('content').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const imageFile = document.getElementById('image').files[0];</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let imageUrl = null;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Upload image if provided</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (imageFile) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const fileName = `${Date.now()}_${imageFile.name}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const { data, error } = await supabase.storage</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>.from('blog-images')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>.upload(fileName, imageFile);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (error) throw error;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Get public URL</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const { data: urlData } = supabase.storage</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>.from('blog-images')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>.getPublicUrl(fileName);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>imageUrl = urlData.publicUrl;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Insert post into database</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const { error: insertError } = await supabase</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.from('blog_posts')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>.insert([{ heading, content, image_url: imageUrl }]);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (insertError) throw insertError;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Show success message</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>notification.innerHTML = '&lt;div class="notification success"&gt;Post published successfully!&lt;/div&gt;';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('postForm').reset();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Reload posts</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>loadPosts();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} catch (error) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>console.error('Error:', error);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>notification.innerHTML = `&lt;div class="notification error"&gt;Error: ${error.message}&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Load and display posts</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>async function loadPosts() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const { data, error } = await supabase</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>.from('blog_posts')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>.select('*')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>.order('created_at', { ascending: false });</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (error) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>console.error('Error loading posts:', error);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const container = document.getElementById('postsContainer');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>container.innerHTML = '';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>data.forEach(post =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const postElement = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>postElement.className = 'post';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let imageHtml = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (post.image_url) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>imageHtml = `&lt;img src="${post.image_url}" alt="${post.heading}"&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>postElement.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h2&gt;${post.heading}&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;${post.content}&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>${imageHtml}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;small&gt;Posted on ${new Date(post.created_at).toLocaleString()}&lt;/small&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>`;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>container.appendChild(postElement);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Initial load</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>loadPosts();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
